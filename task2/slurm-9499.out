@@ -1,0 +1,15 @@
+g++ -O3 -march=native -fopenmp main.cc -lOpenCL -o build/reduce-scan
+In file included from /gnu/store/37ybpm63g3m6fr6nc10qy2racqjxcld4-profile/include/CL/cl.h:20,
+                 from /gnu/store/37ybpm63g3m6fr6nc10qy2racqjxcld4-profile/include/CL/opencl.h:24,
+                 from /gnu/store/37ybpm63g3m6fr6nc10qy2racqjxcld4-profile/include/CL/cl2.hpp:504,
+                 from main.cc:9:
+/gnu/store/37ybpm63g3m6fr6nc10qy2racqjxcld4-profile/include/CL/cl_version.h:22:104: note: ‘#pragma message: cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)’
+   22 | #pragma message("cl_version.h: CL_TARGET_OPENCL_VERSION is not defined. Defaulting to 300 (OpenCL 3.0)")
+      |                                                                                                        ^
+Platform name: NVIDIA CUDA
+Device name: NVIDIA GeForce GTX 1060 6GB
+           function              OpenMP        OpenCL total      OpenCL copy-in       OpenCL kernel     OpenCL copy-out    OpenMP bandwidth    OpenCL bandwidth
+Difference: 118
+             reduce             4397 us            48526 us            38461 us            10047 us               17 us        57.2341 GB/s        25.0481 GB/s
+Difference: 9.5
+     scan-inclusive            12570 us            69344 us            38416 us            17419 us            13507 us              0 GB/s              0 GB/s
